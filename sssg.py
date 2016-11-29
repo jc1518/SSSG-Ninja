@@ -65,6 +65,9 @@ def get_type_cidr(ids, cidr_type):
 
 def ack_proposed_cidr(ids):
     logger.info('\n------------Acknowledgement------------')
+    if len(new_cidr) > 0:
+        logger.warn('New cidr need to be added first!')
+        return False    
     ack_results = list()
     for id in ids:
         if len(get_map_cidr(id, 'proposedCidrs')) > 0:
@@ -343,8 +346,10 @@ def sssg_main():
     if args.mapinfo:
         get_map_info()
     if args.acknowledge:
-        logger.info('Acknowledge feature is disabled!')
-        # ack_proposed_cidr(siteshield_map_ids)
+        if args.debug:
+            logger.setLevel(logging.DEBUG)
+        health_check()
+        ack_proposed_cidr(siteshield_map_ids)
     if args.missed:
         if args.debug:
             logger.setLevel(logging.DEBUG)
