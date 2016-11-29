@@ -23,17 +23,18 @@ SSSG Ninja is the all-in-one managemenet tool for SSSG (Site Shield Security Gro
 
 ## Terminologies
 If you want to deep dive into the tool, here are a few terms you need to know  
-Terminology    | Description   
--------------  | ---------------------    
-current cidr   | current site shield production cidr   
-proposed cidr  | new site shield production cidr   
-new cidr			 | additional cidr to current site shield production cidr   
-staging cidr   | site shield staging cidr  
-configed cidr  | source cidr in security groups  
-trusted cidr   | non site shield cidr  
-missed cidr    | missed site shield production or staging cidr in security groups  
-obsolete cidr  | obsolete site shield cidr in security groups
-empty slots		 | free security group rule space   
+
+| Terminology       | Description            
+| ------------- |-------------  | 
+| current cidr   | current site shield production cidr
+| proposed cidr  | new site shield production cidr   
+| new cidr			 | additional cidr to current site shield production cidr   
+| staging cidr   | site shield staging cidr  
+| configed cidr  | source cidr in security groups  
+| trusted cidr   | non site shield cidr but colocate within security groups
+| missed cidr    | missed site shield production or staging cidr in security groups  
+| obsolete cidr  | obsolete site shield cidr in security groups
+| empty slots		 | free security group rule space  
 
 ## Installation
 Refer the example section for details  
@@ -47,17 +48,18 @@ Refer the example section for details
 
 ## Usage
 The arguments can be used seperately or together. For example, to remove obsolete cidr then add missed cidr, the command is '*python sssg.py -o -m*'  
-Optional arguments     | Description  
-------------------     | ---------------------  
--h, --help             | show this help message and exit  
--a, --advisor          | make recommedations based on current settings  
--d, --debug            | enable debug logging mode  
--i, --mapinfo          | get site shield map name and id  
--k, --acknowledge      | acknowledge site shield updates. Warning: ensure you update security groups before acknowledge  
--m, --missed           | add missed site shield cidr to security groups  
--n, --new              | add new site shield cidr to security groups  
--o, --obsolete         | remove obsolete site shield cidr from security groups  
--s cidr, --search cidr | find security group that contains this cidr (e.g 23.50.48.0/20)  
+
+|Optional arguments     | Description|                   
+|------------------     | ---------------------|
+|-h, --help             | show this help message and exit|
+|-a, --advisor          | make recommedations based on current settings| 
+|-d, --debug            | enable debug logging mode
+|-i, --mapinfo          | get site shield map name and id
+|-k, --acknowledge      | acknowledge site shield updates. Warning: ensure you update security groups before acknowledge
+|-m, --missed           | add missed site shield cidr to security groups
+|-n, --new              | add new site shield cidr to security groups
+|-o, --obsolete         | remove obsolete site shield cidr from security groups
+|-s cidr, --search cidr | find security group that contains this cidr (e.g 23.50.48.0/20)
 
 ## Example
 **Setup site shield credential as environment variables**
@@ -163,7 +165,7 @@ Checking total empty slots...
 No new cidr were found!
 ```
 
-**Test: Search cidr**
+**Test: Search cidr**  
 If you are interested to know which security group has the cidr, you can search it.
 ```bash
 $ python sssg.py -s 184.84.221.0/24
