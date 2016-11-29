@@ -9,7 +9,7 @@ The typical setting is to add all site shield cidr into security groups, then as
 
 But with the frequent site shield cidr updates (add or remove cidr) and the different acknowledge order for add and remove operations, it becomes difficult to keep the security groups up to date. Also you have to keep track of the security group usage, as it may reach the limits.
 
-SSSG Ninja is the all-in-one managemenet tool for SSSG (Site Shield Security Group), it not only makes recommendations but also can do the jobs for you. Here are current supported features:
+SSSG Ninja is the all-in-one management tool for SSSG (Site Shield Security Group), it not only makes recommendations but also can do the jobs for you. Here are current supported features:
 
 - [x] Make recommendations based on health check
 - [x] Add missed site shield cidr to security groups
