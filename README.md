@@ -36,14 +36,14 @@ obsolete cidr  | obsolete site shield cidr in security groups
 empty slots		 | free security group rule space
 
 ## Installation
-Refer the example section for details
-1. Clone the project 
-2. Install requirements *pip install -r requirements.txt*.
-3. Set up your Akamai API credential environment variables: *SS_BASEURL*, *SS_CLIENTTOKEN*, *SS_CLIENTSECRET*, *SS_ACCESSTOKEN*.
-4. Set up your AWS credential file or use instance role if you are running on EC2.
-5. Run *python sssg.py -i* to get the maps IDs, then put them in the *siteshield_map_ids* array in *sssg.py* file.
-6. Add your security groups IDs in the array *siteshield_sg_groups* array in sssg.py file.
-7. As Akamai does not have API for staging IP, so you have to get a list of the current staging IP then add them into the *staging_ip* file.
+Refer the example section for details  
+1. Clone the project   
+2. Install requirements *pip install -r requirements.txt*.   
+3. Set up your Akamai API credential environment variables: *SS_BASEURL*, *SS_CLIENTTOKEN*, *SS_CLIENTSECRET*, *SS_ACCESSTOKEN*.   
+4. Set up your AWS credential file or use instance role if you are running on EC2.   
+5. Run *python sssg.py -i* to get the maps IDs, then put them in the *siteshield_map_ids* array in *sssg.py* file.   
+6. Add your security groups IDs in the array *siteshield_sg_groups* array in sssg.py file.  
+7. As Akamai does not have API for staging IP, so you have to get a list of the current staging IP then add them into the *staging_ip* file.  
 
 ## Usage
 The arguments can be used seperately or together. For example, to remove obsolete cidr then add missed cidr, the command is '*python sssg.py -o -m*'
