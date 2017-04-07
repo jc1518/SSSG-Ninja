@@ -5,9 +5,7 @@ Site Shield is the fancy name for IP white listing of Akamai, it provides an add
 
 Security Group is the security component of AWS, it acts as a virutal firewall for insstances to controls the inbount/outbound traffics.
 
-The typical setting is to add all site shield cidr into security groups, then associate them with the ELB (Elastic Load Balancer). Due to the large number of the site shild cidr and the AWS limits on inbound rules per security group (default 50) and security groups per network interface (default 5). The best practice is to use nested security group - managing the site shield cidr in a couple of security groups, then use those security groups as the sources cidr in one security group which is assoicated with the ELB. 
-
-But with the frequent site shield cidr updates (add or remove cidr) and the different acknowledge order for add and remove operations, it becomes difficult to keep the security groups up to date. Also you have to keep track of the security group usage, as it may reach the limits.
+With the frequent site shield cidr updates (add or remove cidr) and the different acknowledge order for add and remove operations, it becomes difficult to keep the security groups up to date. Also you have to keep track of the security group usage, as it may reach the limits.
 
 SSSG Ninja is the all-in-one management tool for SSSG (Site Shield Security Group), it not only makes recommendations but also can do the jobs for you. Here are current supported features:
 
@@ -88,12 +86,7 @@ Name:s600.akamai.net ID:1001
 siteshield_map_ids = ['1000', '1001']
 ```
 **Create the AWS security groups**  
-siteshield is the security group that is associated with ELB
-![sg00](screenshots/sg00.png)
-
-
-siteshield-0x are the nested security groups which contain the siteshield cidr. You can create one or many per your needs. The port range (80-443) does not take effect as the only thing that matters is the cidr in this case.
-![sg01](screenshots/sg01.png)
+Create the security groups then asssociate them to ELB      
 
 **Setup security groups ID in sssg.py file**
 ```bash
