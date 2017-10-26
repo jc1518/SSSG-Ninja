@@ -65,7 +65,7 @@ def get_type_cidr(ids, cidr_type):
 
 def ack_proposed_cidr(ids):
     logger.info('\n------------Acknowledgement------------')
-    if len(new_cidr) > 0:
+    if len(missed_cidr) > 0:
         logger.warn('New cidr need to be added first!')
         return False    
     ack_results = list()
