@@ -94,7 +94,7 @@ siteshield_sg_groups = ['sg-672b3203', 'sg-792b321d', 'sg-552b3231', 'sg-262b324
 ```
 
 **Setup staging ip in staging_ip file**   
-As Akamai does have API for staging IP, you have to get it from the Luna port: Configure > Security > Firewall Rules Notification  
+As Akamai does not have API for staging IP, you have to get it from the Luna port: Configure > Security > Firewall Rules Notification  
 ![stagingip](screenshots/stagingip.png)
 
 **Test: SSSG advisor**  
@@ -215,7 +215,7 @@ Checking total empty slots...
 - Removing obsolete cidr: 1.1.1.1/32 from sg-672b3203
 {'ResponseMetadata': {'RetryAttempts': 0, 'HTTPStatusCode': 200, 'RequestId': 'fc110210-084c-4b27-bc84-cd337a532471', 'HTTPHeaders': {'transfer-encoding': 'chunked', 'vary': 'Accept-Encoding', 'server': 'AmazonEC2', 'content-type': 'text/xml;charset=UTF-8', 'date': 'Tue, 29 Nov 2016 03:48:50 GMT'}}}
 ```
-##Automation##
+## Automation
 It is easy to automate all SSSG management jobs. A single command does all things: remove obsolete cidr, add missed cidr, add new cidr, acknowledge update. Enjory :)
 ```bash
 $ python sssg.py -o -m -n -k
