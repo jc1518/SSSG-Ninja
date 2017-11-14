@@ -368,8 +368,8 @@ def sssg_main():
     if args.search:
         find_ingress_cidr(siteshield_sg_groups, args.search)
 
-
-sssg_main()
+if __name__ == '__main__':
+    sssg_main()
 
 
 
